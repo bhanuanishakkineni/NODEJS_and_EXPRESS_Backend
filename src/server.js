@@ -3,6 +3,7 @@ import movieRoutes from "./routes/movieRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
 import watchListRoutes from "./routes/watchListRoutes.js";
 // import sampleRoutes from "./routes/sampleRoutes.js";
+import cookieParser from "cookie-parser";
 import express from "express";
 import { connectDB, disconnectDB } from "./config/db.js";
 
@@ -13,6 +14,7 @@ const app = express();
 // Body parser middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 // Mount routes
 app.use("/api/auth", authRoutes);
